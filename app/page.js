@@ -5,6 +5,8 @@ import Link from 'next/link'
 
 import useMousePosition from '@/hooks/useMouse'
 
+import { motion } from 'framer-motion'
+
 export default function Home() {
     const [boundingBox, setBoundingBox] = useState({x:0, y:0});
     const offsetValues = [40, 20, 30, 40];
@@ -106,7 +108,7 @@ export default function Home() {
                             <div className="w-full h-full bg-background-200 -translate-y-full" style={{backfaceVisibility:'hidden'}}></div>
                         </div>
                     </div>
-                    <h1 className="relative font-englisch font-extrabold text-center leading-[91%] text-text tracking-normal pointer-events-none">Hello I&#8217;m <br/> Minglun Shao</h1>
+                    <motion.h1 initial={{transform:'translateY(100%)', opacity:0}} animate={{transform:'translateY(0)', opacity:100}} transition={{ease:'easeIn'}} className="relative font-englisch font-extrabold text-center leading-[91%] text-text tracking-normal pointer-events-none">Hello I&#8217;m <br/> Minglun Shao</motion.h1>
                 </div>
             </main>
         </div>
