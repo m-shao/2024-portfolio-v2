@@ -1,4 +1,21 @@
 /** @type {import('tailwindcss').Config} */
+
+import plugin from 'tailwindcss/plugin'
+
+const rotateY = plugin(function ({ addUtilities }) {
+  addUtilities({
+    '.rotate-y-45': {
+      'transform': 'rotateY(45deg)',
+    },
+    '.rotate-y-90': {
+      'transform': 'rotateY(90deg)',
+    },
+    '.rotate-y-180': {
+      'transform': 'rotateY(180deg)',
+    },
+  })
+})
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,12 +24,22 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        englisch: ['var(--font-englisch)']
       },
+      colors: {
+        text:"#171411",
+        primary: '#998877',
+        background: {
+          100: '#F6F5F3',
+          200: '#E4E0DA'
+        },
+        accent: {
+          100: '#BFC0AA',
+          200: '#ACB298'
+        }
+      }
     },
   },
-  plugins: [],
+  plugins: [rotateY],
 };
