@@ -8,7 +8,7 @@ const OnLoadFadeIn = ({ children, delay }) => {
 			y: 0,
 		},
 		transition: {
-			duration: 1.6,
+			duration: 2,
 			ease: [0.6, 0.01, 0, 0.95],
 			delay: delay,
 		},

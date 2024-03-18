@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 const OverflowReveal = ({ children, delay }) => {
-	const duration = 0.6;
+	const duration = 0.8;
 
 	return (
 		<motion.div

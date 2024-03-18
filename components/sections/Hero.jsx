@@ -159,10 +159,10 @@ const Hero = () => {
 					</div>
 				</OnLoadFadeIn>
 				<div className='text-center text-[6rem] md:text-[9rem] font-englisch font-extrabold leading-[91%] tracking-tight relative pointer-events-none'>
-					<OverflowReveal delay={2}>
+					<OverflowReveal delay={2.25}>
 						<h1>Hello I&#8217;m</h1>
 					</OverflowReveal>
-					<OverflowReveal delay={2.15}>
+					<OverflowReveal delay={2.4}>
 						<h1>Minglun Shao</h1>
 					</OverflowReveal>
 				</div>
