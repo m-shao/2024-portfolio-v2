@@ -30,7 +30,19 @@ const Hero = () => {
 		{ x: 0, y: 0 },
 	]);
 
-	const { x, y } = useMousePosition();
+	// const { x, y } = useMousePosition();
+	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+	useEffect(() => {
+		const updateMousePosition = (ev) => {
+			setMousePosition({ x: ev.clientX, y: ev.clientY });
+		};
+
+		window.addEventListener('mousemove', updateMousePosition);
+		return () => {
+			window.removeEventListener('mousemove', updateMousePosition);
+		};
+	}, []);
 
 	useEffect(() => {
 		const updateCenter = () => {
@@ -68,26 +80,30 @@ const Hero = () => {
 		for (let i = 0; i < 4; i++) {
 			divOffsetsArray[i] = {
 				x:
-					Math.min((center[i].x - x) / boundingBox.x, 1) *
-					-offsetValues[i],
+					Math.min(
+						(center[i].x - mousePosition.x) / boundingBox.x,
+						1
+					) * -offsetValues[i],
 				y:
-					Math.min((center[i].y - y) / boundingBox.y, 1) *
-					-offsetValues[i],
+					Math.min(
+						(center[i].y - mousePosition.y) / boundingBox.y,
+						1
+					) * -offsetValues[i],
 			};
 		}
 
 		setDivOffsets(divOffsetsArray);
-	}, [x, y, boundingBox, center]);
+	}, [mousePosition, boundingBox, center]);
 
 	return (
 		<main className='flex items-center justify-center flex-1 w-full h-full pb-64'>
 			<div className='text-[11rem] relative'>
 				<div
 					ref={divRefs.current[0]}
-					className='w-48 h-56 md:w-60 md:h-72 absolute top-32 left-[5rem] md:top-48 md:left-[7rem]'></div>
+					className='w-48 h-56 md:w-60 md:h-72 absolute top-32 left-[3rem] sm:left-[5rem] md:top-48 md:left-[7rem]'></div>
 				<OnLoadFadeIn delay={0.25}>
 					<div
-						className='w-48 h-56 md:w-60 md:h-72 absolute top-32 left-[5rem] md:top-48 md:left-[7rem] group'
+						className='w-48 h-56 md:w-60 md:h-72 absolute top-32 left-[3rem] sm:left-[5rem] md:top-48 md:left-[7rem] group hidden md:block'
 						style={{
 							transform: `translate(${divOffsets[0].x}px,${divOffsets[0].y}px)`,
 						}}>
@@ -100,13 +116,23 @@ const Hero = () => {
 								style={{ backfaceVisibility: 'hidden' }}></div>
 						</div>
 					</div>
+					<div className='w-48 h-56 md:w-60 md:h-72 absolute top-32 left-[3rem] sm:left-[5rem] md:top-48 md:left-[7rem] group md:hidden'>
+						<div
+							className='w-full h-full transition-all duration-500 group-hover:rotate-y-180'
+							style={{ transformStyle: 'preserve-3d' }}>
+							<div className='w-full h-full bg-red-200'></div>
+							<div
+								className='w-full h-full -translate-y-full bg-primary'
+								style={{ backfaceVisibility: 'hidden' }}></div>
+						</div>
+					</div>
 				</OnLoadFadeIn>
 				<div
 					ref={divRefs.current[1]}
-					className='w-48 h-56 md:w-60 md:h-72 absolute top-7 left-[10rem] md:left-[14rem] md:top-14'></div>
+					className='w-48 h-56 md:w-60 md:h-72 absolute top-7 left-[7.5rem] sm:left-[10rem] md:left-[14rem] md:top-14'></div>
 				<OnLoadFadeIn delay={1}>
 					<div
-						className='w-48 h-56 md:w-60 md:h-72 absolute top-7 left-[10rem] md:left-[14rem] md:top-14 group'
+						className='w-48 h-56 md:w-60 md:h-72 absolute top-7 left-[7.5rem] sm:left-[10rem] md:left-[14rem] md:top-14 group hidden md:block'
 						style={{
 							transform: `translate(${divOffsets[1].x}px,${divOffsets[1].y}px)`,
 						}}>
@@ -119,13 +145,23 @@ const Hero = () => {
 								style={{ backfaceVisibility: 'hidden' }}></div>
 						</div>
 					</div>
+					<div className='w-48 h-56 md:w-60 md:h-72 absolute top-7 left-[7.5rem] sm:left-[10rem] md:left-[14rem] md:top-14 group md:hidden'>
+						<div
+							className='w-full h-full transition-all duration-500 group-hover:rotate-y-180'
+							style={{ transformStyle: 'preserve-3d' }}>
+							<div className='w-full h-full bg-red-200'></div>
+							<div
+								className='w-full h-full -translate-y-full bg-accent-100'
+								style={{ backfaceVisibility: 'hidden' }}></div>
+						</div>
+					</div>
 				</OnLoadFadeIn>
 				<div
 					ref={divRefs.current[2]}
-					className='w-36 h-48 md:w-52 md:h-64 absolute left-[20rem] top-28 md:left-[26rem] md:top-48'></div>
+					className='w-36 h-48 md:w-52 md:h-64 absolute left-[18.5rem] sm:left-[20rem] top-28 md:left-[26rem] md:top-48'></div>
 				<OnLoadFadeIn delay={0.75}>
 					<div
-						className='w-36 h-48 md:w-52 md:h-64 absolute left-[20rem] top-28 md:left-[26rem] md:top-48 group'
+						className=' follow-mouse w-36 h-48 md:w-52 md:h-64 absolute left-[18.5rem] sm:left-[20rem] top-28 md:left-[26rem] md:top-48 group hidden md:block'
 						style={{
 							transform: `translate(${divOffsets[2].x}px,${divOffsets[2].y}px)`,
 						}}>
@@ -138,13 +174,23 @@ const Hero = () => {
 								style={{ backfaceVisibility: 'hidden' }}></div>
 						</div>
 					</div>
+					<div className=' follow-mouse w-36 h-48 md:w-52 md:h-64 absolute left-[18.5rem] sm:left-[20rem] top-28 md:left-[26rem] md:top-48 group md:hidden'>
+						<div
+							className='w-full h-full transition-all duration-500 group-hover:rotate-y-180'
+							style={{ transformStyle: 'preserve-3d' }}>
+							<div className='w-full h-full bg-red-200'></div>
+							<div
+								className='w-full h-full -translate-y-full bg-accent-200'
+								style={{ backfaceVisibility: 'hidden' }}></div>
+						</div>
+					</div>
 				</OnLoadFadeIn>
 				<div
 					ref={divRefs.current[3]}
-					className='w-36 h-44 md:w-48 md:h-56 absolute left-[26rem] top-20 md:left-[34rem] md:top-32'></div>
+					className='w-36 h-44 md:w-48 md:h-56 absolute left-[24rem] sm:left-[26rem] top-20 md:left-[34rem] md:top-32'></div>
 				<OnLoadFadeIn delay={0.5}>
 					<div
-						className='w-36 h-44 md:w-48 md:h-56 absolute left-[26rem] top-20 md:left-[34rem] md:top-32 group'
+						className='w-36 h-44 md:w-48 md:h-56 absolute left-[24rem] sm:left-[26rem] top-20 md:left-[34rem] md:top-32 group hidden md:block'
 						style={{
 							transform: `translate(${divOffsets[3].x}px,${divOffsets[3].y}px)`,
 						}}>
@@ -154,7 +200,21 @@ const Hero = () => {
 							<div className='w-full h-full bg-red-200'></div>
 							<div
 								className='w-full h-full -translate-y-full bg-background-200'
-								style={{ backfaceVisibility: 'hidden' }}></div>
+								style={{
+									backfaceVisibility: 'hidden',
+								}}></div>
+						</div>
+					</div>
+					<div className='w-36 h-44 md:w-48 md:h-56 absolute left-[24rem] sm:left-[26rem] top-20 md:left-[34rem] md:top-32 group md:hidden'>
+						<div
+							className='w-full h-full transition-all duration-500 group-hover:rotate-y-180'
+							style={{ transformStyle: 'preserve-3d' }}>
+							<div className='w-full h-full bg-red-200'></div>
+							<div
+								className='w-full h-full -translate-y-full bg-background-200'
+								style={{
+									backfaceVisibility: 'hidden',
+								}}></div>
 						</div>
 					</div>
 				</OnLoadFadeIn>

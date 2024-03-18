@@ -2,10 +2,11 @@ import { motion } from 'framer-motion';
 
 const OnLoadFadeIn = ({ children, delay }) => {
 	const itemMain = {
-		hidden: { opacity: 0, y: 200 },
+		hidden: { opacity: 0, y: 200, pointerEvents: 'none' },
 		show: {
 			opacity: 1,
 			y: 0,
+			pointerEvents: 'auto',
 		},
 		transition: {
 			duration: 2,
@@ -17,7 +18,8 @@ const OnLoadFadeIn = ({ children, delay }) => {
 		<motion.div
 			initial={itemMain.hidden}
 			animate={itemMain.show}
-			transition={itemMain.transition}>
+			transition={itemMain.transition}
+			className='pointer-events-auto'>
 			{children}
 		</motion.div>
 	);

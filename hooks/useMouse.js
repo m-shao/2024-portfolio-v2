@@ -13,7 +13,7 @@ const useMousePosition = () => {
 		return () => {
 			window.removeEventListener('mousemove', updateMousePosition);
 		};
-	}, [setMousePosition]);
+	}, []);
 
 	return mousePosition;
 };
