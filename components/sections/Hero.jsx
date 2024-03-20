@@ -75,7 +75,7 @@ const Hero = () => {
 	}, []);
 
 	useEffect(() => {
-		const offsetValues = [40, 20, 30, 40];
+		const offsetValues = [30, 10, 20, 30];
 		const divOffsetsArray = [{}, {}, {}, {}];
 		for (let i = 0; i < 4; i++) {
 			divOffsetsArray[i] = {
@@ -96,7 +96,7 @@ const Hero = () => {
 	}, [mousePosition, boundingBox, center]);
 
 	return (
-		<main className='flex items-center justify-center flex-1 w-full h-full pb-64'>
+		<main className='flex items-center justify-center flex-1 w-full h-full pb-[25vh]'>
 			<div className='text-[11rem] relative'>
 				<div
 					ref={divRefs.current[0]}
