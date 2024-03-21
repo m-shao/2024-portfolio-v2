@@ -219,11 +219,14 @@ const Hero = () => {
 					</div>
 				</OnLoadFadeIn>
 				<div className='relative pointer-events-none'>
-					<OverflowReveal delay={2.25}>
+					<OverflowReveal once={true} delay={2.25}>
 						<h1>Hello I&#8217;m</h1>
 					</OverflowReveal>
-					<OverflowReveal delay={2.4}>
-						<h1>Minglun Shao</h1>
+					<OverflowReveal once={true} delay={2.4}>
+						<h1>Minglun Shao.</h1>
+					</OverflowReveal>
+					<OverflowReveal once={true} delay={2.4}>
+						<h1>A Developer</h1>
 					</OverflowReveal>
 				</div>
 			</div>

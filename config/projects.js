@@ -9,14 +9,14 @@ export const projects = [
 			'A platform for students to practice and compete in math contests.',
 		image: ocmc,
 		tech: ['NextJS', 'TailwindCSS', 'Express', 'MongoDB'],
-		path: '/project/ocmc',
+		path: 'https://www.ontariocmc.ca/',
 	},
 	{
 		name: 'JAMHacks | Canadian Hackathon',
 		description: 'Canada’s largest high school hackathon',
 		image: jamhacks,
 		tech: ['NextJS', 'MongoDB', 'Google API', 'Framer Motion'],
-		path: '/project/jamhacks',
+		path: 'https://www.jamhacks.ca/',
 	},
 	{
 		name: 'Coffee Coach | Winner @ JAMHacks',
@@ -24,6 +24,6 @@ export const projects = [
 			'An AI-powered web app that helps users engage in coffee chats',
 		image: coffeeCoach,
 		tech: ['ReactJS', 'MongoDB', 'OpenAI API', 'Framer Motion'],
-		path: '/project/coffe-coach',
+		path: 'https://github.com/m-shao/coffee-coach',
 	},
 ];
