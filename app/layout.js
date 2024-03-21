@@ -63,6 +63,10 @@ const englisch = localFont({
 export const metadata = {
 	title: 'Minglun Shao',
 	description: "Minglun Shao's personal website",
+	icons: {
+		icon: '/favicon.ico',
+		favicon: '/favicon.ico',
+	},
 };
 
 export default function RootLayout({ children }) {
