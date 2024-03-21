@@ -39,7 +39,15 @@ module.exports = {
 					200: '#ACB298',
 				},
 			},
+			screens: [''],
 		},
 	},
+	safelist: [
+		// 'bg-primary',
+		// 'bg-accent-100',
+		// 'bg-accent-200',
+		// 'bg-background-100',
+		// 'bg-background-200',
+	],
 	plugins: [rotateY],
 };

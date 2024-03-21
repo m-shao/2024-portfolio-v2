@@ -218,7 +218,7 @@ const Hero = () => {
 						</div>
 					</div>
 				</OnLoadFadeIn>
-				<div className='text-center text-[6rem] md:text-[9rem] font-englisch font-extrabold leading-[91%] tracking-tight relative pointer-events-none'>
+				<div className='relative pointer-events-none'>
 					<OverflowReveal delay={2.25}>
 						<h1>Hello I&#8217;m</h1>
 					</OverflowReveal>
