@@ -225,9 +225,6 @@ const Hero = () => {
 					<OverflowReveal once={true} delay={2.4}>
 						<h1>Minglun Shao.</h1>
 					</OverflowReveal>
-					<OverflowReveal once={true} delay={2.4}>
-						<h1>A Developer</h1>
-					</OverflowReveal>
 				</div>
 			</div>
 		</main>
