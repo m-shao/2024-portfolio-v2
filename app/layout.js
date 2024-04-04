@@ -1,8 +1,8 @@
-import { Inter } from 'next/font/google';
+// import { Arial } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+// const arial = Arial({ subsets: ['latin'] });
 
 const englisch = localFont({
 	src: [
@@ -74,7 +74,7 @@ export default function RootLayout({ children }) {
 		<html lang='en'>
 			<body
 				className={
-					inter.className + ' bg-background-100 ' + englisch.className
+					'bg-background-100 overflow-x-hidden ' + englisch.className
 				}>
 				{children}
 			</body>

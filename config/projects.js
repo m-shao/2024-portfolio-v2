@@ -1,6 +1,5 @@
-import ocmc from '../assets/project-logos/ocmc.svg';
-import jamhacks from '../assets/project-logos/jamhacks.svg';
-import coffeeCoach from '../assets/project-logos/coffee-coach.svg';
+import ocmc from '@/assets/projects/ocmc.svg';
+import jamhacks from '@/assets/projects/jamhacks.svg';
 
 export const projects = [
 	{
@@ -10,6 +9,8 @@ export const projects = [
 		image: ocmc,
 		tech: ['NextJS', 'TailwindCSS', 'Express', 'MongoDB'],
 		path: 'https://www.ontariocmc.ca/',
+		bg: 'white',
+		text: 'black',
 	},
 	{
 		name: 'JAMHacks | Canadian Hackathon',
@@ -17,13 +18,7 @@ export const projects = [
 		image: jamhacks,
 		tech: ['NextJS', 'MongoDB', 'Google API', 'Framer Motion'],
 		path: 'https://www.jamhacks.ca/',
-	},
-	{
-		name: 'Coffee Coach | Winner @ JAMHacks',
-		description:
-			'An AI-powered web app that helps users engage in coffee chats',
-		image: coffeeCoach,
-		tech: ['ReactJS', 'MongoDB', 'OpenAI API', 'Framer Motion'],
-		path: 'https://github.com/m-shao/coffee-coach',
+		bg: '#2E0252',
+		text: 'white',
 	},
 ];
